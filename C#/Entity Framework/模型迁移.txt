@@ -1,0 +1,55 @@
+--------------过程------------------
+工具-Nuget管理-程序包管理控制台
+1.Install-Package EntityFramework
+2.Enable-Migrations  (启动迁移)
+  Enable-Migrations -ProjectName <name>
+3.Add-Migration   (添加迁移)
+  Add-Migration -ProjectName <name> <迁移文件名>
+4.Update-Database -SourceMigration <name>(执行迁移，更新数据库)   (-Verbose)
+
+
+
+---------------帮助------------------
+Enable-Migrations 启用迁移
+Add-Migration 为挂起的Model变化添加迁移脚本
+Update-Database 将挂起的迁移更新到数据库
+Get-Migrations 获取已经应用的迁移
+
+1. Enable-Migrations
+执行get-help Enable-Migrations –detailed 查看Enable-Migrations的详细用法。
+
+-ContextTypeName 指定要使用的Context
+-EnableAutomaticMigrations 启动自动迁移
+-ProjectName 指定搭建的迁移类添加到的项目
+-StartUpProjectName 指定使用的配置文件所在的项目
+-ConnectionStringName 指定使用配置文件中连接字符串的名称
+-ConnectionString 指定使用的连接字符串
+-ConnectionProviderName 指定连接字符串的provider名称
+-Force 重写迁移配置
+
+2. Add-Migration
+执行get-help Add-Migration –detailed查看Add-Migration的详细用法。
+
+-Name 指定自定义脚本的名称
+-Force
+-ProjectName
+-StartUpProjectName
+-ConfigurationTypeName 指定使用的迁移配置
+-IgnoreChanges 忽略检测到挂起的model改变，创建一个空的迁移。这个选项可用来为已有的数据库启用迁移创建一个初始的，空的迁移。
+-ConnectionStringName 指定使用配置文件中连接字符串的名称
+-ConnectionString 指定使用的连接字符串
+-ConnectionProviderName 指定连接字符串的provider名称
+
+3. Update-Database
+执行get-help Update-Database -detailed查看Add-Migration的详细用法。
+
+-SourceMigration 只有-Script打开时才有效。指定迁移的名称用作更新的起点。忽略则使用最后一次应用的迁移。
+-TargetMigration 指定将数据库更新到哪个迁移的名称。
+-Script 生成SQL脚本
+-Force
+-ProjectName
+-StartProjectName
+- ConfigurationTypeName
+-ConnectionStringName 指定使用配置文件中连接字符串的名称
+-ConnectionString 指定使用的连接字符串
+-ConnectionProviderName 指定连接字符串的provider名称

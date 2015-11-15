@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="http://res.xru.com/javascript/lib/jquery-1.8.0.min.js"></script>
+    <link href="jquery.autocomplete.css" rel="stylesheet" />
+    <script src="jquery.autocomplete.min.js"></script>
+    <!--<link href="main.css" rel="stylesheet" />
+    <link href="thickbox.css" rel="stylesheet" />-->
+    <script>
+        $(document).ready(function () {
+            var datas = ["12000,aaaa", "12000,ab", "12000,abc", "12000,abcd", "abcde", "abcdef", "aaaabcdefg", "abcdefgh", "abcdefghi", "abcdefghij", "abcdefghijk"];
+            $("#txt").autocomplete(datas, {
+                max: 10,
+                width: 430,
+                delay: 500,
+                //autoFill: true,
+                selectFirst: false,
+                scroll: false,        //去滚动条
+                matchContains: false    //配对是否包含所输入的值
+                
+            }).result(function (item) {
+                var val = document.getElementById("txt").value;
+                $("#txt").val(val.split(",")[1]);
+                //location.href = "http://www.baidu.com/s?wd=" + val;
+            });
+        });
+
+        //提交内容搜索this.innerHTML
+        function cygo() {
+            var k = document.getElementById("txt").value;
+            if (k == "") { alert("请输入要搜索的内容！"); }
+            else { location.href = "http://www.baidu.com/s?wd=" + k; }
+        }
+    </script>
+
+    <style type="text/css">
+     #txt {
+        width: 420px;
+        height: 32px;
+        border: 1px solid #b6b6b6;
+        line-height: 25px;
+        padding: 0 5px;
+        border-color: #9a9a9a #cdcdcd #cdcdcd #9a9a9a;
+    }
+      .btn {
+            width: 95px;
+            height: 32px;
+            font-size: 14px;
+            background-color: #ddd;
+            border: 1px solid #000;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+   
+    </style>
+</head>
+<body>
+    <div style="width:600px; margin:150px auto;">
+        <input type="text" id="txt" />
+        <button class="btn" onclick="cygo()">百度一下</button>
+    </div>
+</body>
+</html>

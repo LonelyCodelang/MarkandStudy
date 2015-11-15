@@ -1,0 +1,30 @@
+alter table Inquiry add  Shichangrenyuan nvarchar(255)
+alter table Inquiry add  ShiChangPrice decimal(18, 0) not null default 0
+alter table Inquiry add  ShiChangTotal decimal(18, 0) not null default 0
+
+
+P_DB_GetInquiryList
+
+
+
+P_DB_GetProLst_Cooperate
+P_DB_GetInquiryList
+P_DB_GetProjectInPageAssignList
+
+CREATE TABLE [dbo].[MessagePlane](
+	[TID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Info] nvarchar(max) NOT NULL,
+	[PlaneName] nvarchar(255) NOT NULL,
+	[flag] int NOT NULL
+	)
+
+CREATE TABLE [dbo].[MessageUserDefine](
+	[TID] [bigint] IDENTITY(1,1) NOT NULL,
+	[Info] nvarchar(max) NOT NULL,
+	[DepartmentID] [bigint] NOT NULL,
+	[flag] int NOT NULL
+	)
+insert into MessagePlane values('【评E评】您好，您的业务已经受理，项目地址：#System:Address#，流水号：#System:ProjectNo#咨询电话：#User:Tel#，请勿回复此短信[#User:Company#]','立项',0)
+insert into MessagePlane values('【评E评】您好，我是#System:Company#外勘人员#System:OutTaskName#，电话：#User:Tel#，负责您本次评估勘察工作。请勿回复此短信[#User:Company#]','外业领取',1)
+insert into MessagePlane values('【评E评】您好，您的评估报告（北京市西城区车公庄大街9号五栋大楼，委托方#System:Degelet#）已经完成，评估总价为#System:Total#，单价为#System:Sign#，如有异议请联系#User:Tel#。请勿回复此短信[#User:Company#]','盖章完成',2)
+insert into MessagePlane values('【评E评】您好，您的评估报告（编号#System:ReportNo#）已通过[#System:SudiName#]寄出，快递单号为#System:SudiNo#，请注意查收。我方出具的评估报告总价为#System:Total#，委托方为#System:Degelet#，您可以通过登录#User:Url#进行报告的真伪查询和电子报告的下载。如有异议请联系#User:Tel#。请勿回复此短信[#User:Company#]','报告发送完成',3)

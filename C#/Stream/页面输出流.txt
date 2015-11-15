@@ -1,0 +1,5 @@
+Response.ContentType = "application/octet-stream";
+Response.AddHeader("Content-Disposition", "attachment; filename=" + HttpUtility.UrlEncode("S1_.rar", System.Text.Encoding.UTF8));
+Response.BinaryWrite(result);
+Response.Flush();
+Response.End();
