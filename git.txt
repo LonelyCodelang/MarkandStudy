@@ -49,5 +49,5 @@ warning: LF will be replaced by CRLF in xxx
 LF是linux下的换行符，而CRLF是enter + 换行。执行git config --global core.autocrlf false。禁止自动替换 
 
 end~~~~~~~~~~~~~~~~~~
-
 lineB~~~
+lineA
